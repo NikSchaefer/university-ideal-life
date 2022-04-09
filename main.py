@@ -201,10 +201,12 @@ EPOCHS = 10
 
 hist = model.fit(train_ds, validation_data=val_ds, epochs=EPOCHS).history
 
+# creates an evenly filled array of the epochs
 hist["epoch"] = np.linspace(1, EPOCHS, EPOCHS)
 
 model.summary()
 
+# plots the training and validation loss for each epoch
 fig, ax = plt.subplots(2, 2)
 
 sns.lineplot(x="epoch", y="loss", data=pd.DataFrame(hist), ax=ax[0, 0])
@@ -232,23 +234,25 @@ print("Test Accuracy: ", accuracy)
 
 # new_model.summary()
 
+# Input your own data here to predict your target variable.
+# Use visualize.py to see the categorical types that best fit you
 sample = {
     "Career": "UGRD",
     "Citizenship": "Country Citzen",
     "Nationality": "Singapore",
-    "Year since Matriculation": 2,
-    "Year of Study": 2,
+    "Year since Matriculation": 4,
+    "Year of Study": 4,
     "Primary Programme": "Bachelor of Computing",
     "Gender": "M",
     "Department": "School of Science",
-    "Housing Type": "Residential Colleges",
-    "Q1-How many events have you Volunteered in ?": 2,
-    "Q2-How many events have you Participated in ?": 5,
+    "Housing Type": "Out of Campus",
+    "Q1-How many events have you Volunteered in ?": 4,
+    "Q2-How many events have you Participated in ?": 4,
     "Q3-How many activities are you Interested in ?": 6,
-    "Q4-How many activities are you Passionate about ?": 2,
+    "Q4-How many activities are you Passionate about ?": 5,
     # "Q5-What are your levels of stress ?": 1,
     # "Q6-How Satisfied You are with your Student Life ?": 1,
-    "Q7-How much effort do you make to interact with others ?": 1.0,
+    "Q7-How much effort do you make to interact with others ?": 3.0,
     "Q8-About How events are you aware about ?": 3.0,
     # "Q9-What is an ideal student life ?": 1,
 }
