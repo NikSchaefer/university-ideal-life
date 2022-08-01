@@ -51,15 +51,15 @@ For the categorical data we use either a StringLookup or IntegerLookup in order 
 
 Now that each column of data has their own preprocessing layers and normalization complete we can move on the model
 
+## Output
+
+The model achieves 81.4% accuracy on the test set predicting whether students are stressed.
+
 ### Model
 
 The model is comprised of 7 layers alternating between Dense and Dropout. We start with a larger dense layer to begin to pick apart our data. Their are many dropout layers because much of our data is likely irrelevant to stress levels. As we continue the Dense layers get smaller until we finally create an output layer with 1 unit. This is the percentage we are sure the student is satisfied in the case we are prediction student stress levels.
 
 We combine the inputs and outputs to build our model. In this case we use binary_crossentropy because we are mapping to a stress level whether being stressed or not and then taking the pecentage based from that. We use an adam optimizer in this case to optimize the learning of our model.
-
-## Output
-
-The model achieves 81.4% accuracy on the test set predicting whether students are stressed.
 
 ## File Structure
 
