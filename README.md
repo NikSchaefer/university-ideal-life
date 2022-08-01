@@ -28,11 +28,8 @@ sample = {
     "Q2-How many events have you Participated in ?": 4,
     "Q3-How many activities are you Interested in ?": 6,
     "Q4-How many activities are you Passionate about ?": 5,
-    # "Q5-What are your levels of stress ?": 1,
-    # "Q6-How Satisfied You are with your Student Life ?": 1,
     "Q7-How much effort do you make to interact with others ?": 3.0,
     "Q8-About How events are you aware about ?": 3.0,
-    # "Q9-What is an ideal student life ?": 1,
 }
 
 input_dict = {name: tf.convert_to_tensor([value]) for name, value in sample.items()}
@@ -47,22 +44,22 @@ print("probability you are satisfied with your student life: ", prob)
 ## How it works
 
 ### Preprocessing
-First we generate the vocab in which is used in the scripts. We then map it to a StringLookup layer in order to map each character into a number. We also create ids_from_chars in order to revert back to text near the end. We do this because it is easier for the model to process the numbers rather than individual characters.
 
-Next we configure the dataset. We split the script into a number of sequences that we can use to train the model. These are split with split_input_sequence into a train side and a test side for each sequence. We then batch and shuffle the dataset to prepare for training.
+The data the survey provides is of several types including both categorical and numerical data. During preprocessing we aim to normalize this data. We do this by creating an input layer for each column of data. For numerical features we use a simple normailzation layer to place the values between 0 and 1 while still maintain a proportional deviance.
 
+For the categorical data we use either a StringLookup or IntegerLookup in order to map the categorical values into a multi-hot encoding layer. It works by turning the string or integer representation into an array representation of either 1s or 0s. This makes it much easier to analyze the data.
+
+Now that each column of data has their own preprocessing layers and normalization complete we can move on the model
 
 ### Model
 
-The model we train on the dataset consists of 3 layers. We use an Embedding layer, a GRU layer, and a dense layer. The embedding layer first maps the input into weights that we can modify during training. The next layer is a GRU or Gated Recurrent Unit is a type of RNN similar to a LSTM but with only 2 gates. It works by determining what information is important and what can be forgotten within the text. Finally there is a dense layer to select an id within the vocab set. There is one logit for each character in the vocab. We then can map this id back to a string.
+The model is comprised of 7 layers alternating between Dense and Dropout. We start with a larger dense layer to begin to pick apart our data. Their are many dropout layers because much of our data is likely irrelevant to stress levels. As we continue the Dense layers get smaller until we finally create an output layer with 1 unit. This is the percentage we are sure the student is satisfied in the case we are prediction student stress levels.
 
-We use a sparse categorical crossentropy loss because we are labeling the logits we recieve from the dataset. We use sparse categorical crossentropy instead of categorical crossentropy because there is a signifigant amount of logits and not enough relation between them. Finally the adam optimizer is used to optimize our model.
+We combine the inputs and outputs to build our model. In this case we use binary_crossentropy because we are mapping to a stress level whether being stressed or not and then taking the pecentage based from that. We use an adam optimizer in this case to optimize the learning of our model.
 
+## Output
 
-### Text Generation
-
-Finally after we have trained our model we aim to generate a script. To acomplish this we take a starting value of `MATT:` and plug it into our model to predict one letter at a time and then to continue to predict on the new text with the data. This process is repeated many times to generate a full script. First we define a mask to catch any faulty text from being generated. Then we run the convert the input into tensors by mapping it through our StringLookup. We then run the input through the models layers and make sure to save the state. We then repeat this process enough times to generate a full script.
-
+The model achieves 81.4% accuracy on the test set predicting whether students are stressed.
 
 ## File Structure
 
