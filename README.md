@@ -62,7 +62,7 @@ We combine the inputs and outputs to build our model. In this case we use binary
 
 ## File Structure
 
-```shell
+```py
 /save
 ideal-university-life.ipynb
 main.py
