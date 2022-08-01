@@ -1,8 +1,7 @@
 
 # University Ideal Life Analysis & Prediction
 
-Machine Learning Model used to analyze and predict student satiscation and stress levels
-
+Neural Network used to analyze and predict student satisfaction and stress levels
 
 
 
