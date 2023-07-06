@@ -211,13 +211,13 @@ Messing around with these values we can test our hypothesis of what causes the m
 
 With this statistical analysis and prediction model, there is a lot to takeaway. Let's go back to the original questions and see what we can answer.
 
-### 1. What leads to the most optimal student college experience?
+##### 1. What leads to the most optimal student college experience?
 
 As it turns out, many of the normal college advice you hear is confirmed by this research. Participate in many activities, be outgoing, join clubs. These are all things that will lead to a more optimal college experience. Don't overdo it though, as we can see from the model, too much participation can lead to stress as well.
 
 The data encourages you to volunteer if you can. It pushes you to live on campus (interestingly enough). Live close to home if you can. Science majors are more satisfied than arts majors, though not by much.
 
-### 2. What are the most important factors in student satisfaction and stress levels?
+##### 2. What are the most important factors in student satisfaction and stress levels?
 
 As dictated by our ANOVA variance analysis, and confirmed by the model, the most important factors that contribute to a student's satisfaction and stress levels are:
 
@@ -227,7 +227,7 @@ As dictated by our ANOVA variance analysis, and confirmed by the model, the most
 
 Typically the more you are actively involved in events at college, the less stressed and more satisfied you are. There are, of course, ways to go too far. When you participate in too many events, you can become stressed, as confirmed by the model. This is why it is important to find a balance between participating in events and not participating in events.
 
-### Can we predict student satisfaction and stress levels?
+##### 3. Can we predict student satisfaction and stress levels?
 
 Yes, we can predict student satisfaction and stress levels with a high degree of accuracy. The model achieved a loss of 0.03 on a fresh test set. Our training ended with a 2.68 loss which is not far behind. We can use the model to give us a prediction of a student's satisfaction and stress levels based on their input. You can also use the model to find the most optimal values for yourself, and see what you can do to maximize your satisfaction and minimize your stress.
 
