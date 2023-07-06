@@ -90,13 +90,13 @@ max                                             3.000000
 
 The raw numbers are great but a visual representation is much more helpful. Here are the distributions of some of the features. To see all of the distributions, look in the GitHub repository. First up are the categorical features, displayed in a countplot.
 
-![Distrubutions of categorical features](https://github.com)
+![Distrubutions of categorical features](https://raw.githubusercontent.com/NikSchaefer/university-ideal-life/main/images/1.png)
 
-![Primary program feature](https://github.com)
+![Primary program feature](https://raw.githubusercontent.com/NikSchaefer/university-ideal-life/main/images/2.png)
 
 Next up are the numerical features, displayed in a histogram.
 
-![Distrubutions of numerical features](https://github.com)
+![Distrubutions of numerical features](https://raw.githubusercontent.com/NikSchaefer/university-ideal-life/main/images/3.png)
 
 Through these graphs we can see that there are some features that are heavily skewed. Many students are disproportionate from singapore and located out of campus. School of Arts and Social Sciences is the largest with School of Science following. Vast majority of students analyzed were in their undergraduate. We can also see that there are some features that have a some outliers. We will need to preprocess the data in order to use it in our model.
 
@@ -106,7 +106,7 @@ We also see in many of the numerical features that most are skewed distributions
 
 Next I wanted to see if there were any features that were correlated with each other. I used a heatmap to visualize the correlations between the features.
 
-![Correlations between features](https://github.com)
+![Correlations between features](https://raw.githubusercontent.com/NikSchaefer/university-ideal-life/main/images/4.png)
 
 The strongest correlated features were the activities features. This is expected as students who are involved in more activities are more likely to be involved in more activities. There is also a positive correlation among features related to participation. This is expected as students who seek more opportunities will be more likely to participate in more events. There is also a positive correlation between the participation features and the stress feature. This is also expected as students who participate in more events are more likely to be stressed.
 
